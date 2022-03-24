@@ -18,7 +18,7 @@ Current Version: <div id='#Version1.0.0'>Ver 1.0.0 (Undeployed!)</div>
 - Flow chart discussion of our working model
 - Technology Stack and future implementations
 - Conclusion
-- [FAQs](./#FAQs)
+- [FAQs](./README.md#FAQs)
 
 ### Implementation
 - Until 30th March 2022, we should be able to demonstrate the API, and its features via Web-App

@@ -51,6 +51,14 @@ app.get('/example', (req, res) => {
     res.sendFile(__dirname + '/app/src/example.html');
 });
 
+app.get('/exampletoken', (req, res) => {
+    res.sendFile(__dirname + '/app/src/exampletoken.html');
+});
+
+app.get('/exampletokenverified', (req, res) => {
+    res.sendFile(__dirname + '/app/src/exampletokenverified.html');
+});
+
  app.listen(portNumber, () => {
         console.log(`Server is running on port ${portNumber}`);
 });

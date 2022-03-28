@@ -3,6 +3,12 @@ const app = express();
 
 const portNumber = process.env.PORT || 3000;
 
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + 'app/src/index.html');
+});
+
+
 // API Route 
 app.get('/api/v1/', (req, res) => {
     let resp = `<h1>Welcome to Port ${portNumber}</h1>`;

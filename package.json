@@ -1,0 +1,30 @@
+{
+  "name": "queue-management-sih-2022",
+  "version": "1.0.0",
+  "description": "Queue-Management-System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kashif-raza2019/queue-management-sih-2022.git"
+  },
+  "keywords": [
+    "Queue",
+    "Management",
+    "Smart",
+    "india",
+    "Hackathon-2022\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[I\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C"
+  ],
+  "author": "Team Optimizers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kashif-raza2019/queue-management-sih-2022/issues"
+  },
+  "homepage": "https://github.com/kashif-raza2019/queue-management-sih-2022#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.3"
+  }
+}

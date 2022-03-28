@@ -17,24 +17,9 @@ app.get('/api/v1/', (req, res) => {
     res.send(resp);
 });
 
-
-
-
-
-
-
 // Index
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/app/src/index.html');
-});
-
-// Login
-app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/app/src/login.html');
-});
-//Register
-app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/app/src/register.html');
 });
 
 // One-Click Token
@@ -42,14 +27,17 @@ app.get('/gettoken', (req, res) => {
     res.sendFile(__dirname + '/app/src/oneclicktoken.html');
 });
 
+//Token Details
 app.get('/tokenDetails', (req, res) => {
     res.sendFile(__dirname + '/app/src/tokenDetails.html');
 });
 
+// Admin / Registration
 app.get('/admin', (req, res) => {
     res.sendFile(__dirname + '/app/src/admin.html');
 });
 
+// Token-feedback
 app.get('/token-feedback', (req, res) => {
     res.sendFile(__dirname + '/app/src/token-feedback.html');
 });
@@ -59,12 +47,9 @@ app.get('/organization', (req, res) => {
     res.sendFile(__dirname + '/app/src/organization.html');
 });
 
-// User
-app.get('/user', (req, res) => {
-    res.sendFile(__dirname + '/app/src/user.html');
+app.get('/example', (req, res) => {
+    res.sendFile(__dirname + '/app/src/example.html');
 });
-
-
 
  app.listen(portNumber, () => {
         console.log(`Server is running on port ${portNumber}`);

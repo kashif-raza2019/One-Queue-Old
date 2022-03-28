@@ -7,51 +7,54 @@
     <!-- Font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/index.css">
     <title>Queue-Management Home</title>
 </head>
 <body>
     <!-- Header Nav -->
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand">Queue Management</a>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search <i class="fa fa-search"></i></button>
-          </form>
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+    <div class="navbar navbar-expand-md navbar-dark bg-dark mb-4" role="navigation">
+      <a class="navbar-brand" href="/">Queue-Management</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="/example">Example</a>
               </li>
-            <li class="nav-items">
-                <a class="btn btn-secondary btn-outline">Login/Signup</a>
+              <li class="nav-item">
+                <select name="category" class="form-control">
+                    <option value="">Select</option>
+                    <option value="hospital">Hospital</option>
+                    <option value="medical">Medical Stores</option>
+                    <option value="">-------------</option>
+                    <option value="governmentOffices">Government Offices</option>
+                    <option value="localBusStops">Local Bus Stops</option>
+                    <option value="other">Other(etc.)</option>
+                </select>
             </li>
           </ul>
-        </div>
-    </nav>
-      <!-- Main Container -->
-      <div class="container-fluid">
-        
+          <form class="form-inline mt-2 mt-md-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search Location" name="location" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
       </div>
-      
+  </div>
+  
+  <main role="main" class="container">
+      <div class="jumbotron text-center">
+          <h1>Bootstrap 4 NavBar</h1>
+          <p class="lead text-info">NavBar with too many childs.</p>
+          <a href="http://fontenele.github.io/bootstrap-navbar-dropdowns/">Github</a>
+      </div>
+  </main>
+  
 
 
-      <!-- Footer Nav -->
-      <nav class="navbar fixed-bottom navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">&copy; 2022 Project for SIH-2022 PS TK1050 Optimizers </a>
-        </div>
-      </nav>
+
+  <script src="./assets/js/index.js"></script>
 </body>
 </html>

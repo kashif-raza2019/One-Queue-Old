@@ -5,7 +5,7 @@ const portNumber = process.env.PORT || 3000;
 
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + 'app/src/index.html');
+    res.sendFile(__dirname + './app/src/index.html');
 });
 
 

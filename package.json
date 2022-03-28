@@ -25,6 +25,8 @@
   "homepage": "https://github.com/kashif-raza2019/queue-management-sih-2022#readme",
   "dependencies": {
     "axios": "^0.26.1",
-    "express": "^4.17.3"
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "mongodb": "^4.4.1"
   }
 }

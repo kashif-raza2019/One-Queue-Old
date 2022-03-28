@@ -13,7 +13,7 @@ app.get('/api/v1/', (req, res) => {
     resp += '<li>/api/v1/token/:tokenId</li>';
     resp += '</ul>';
  
-    res.send(htmlCode);
+    res.send(resp);
  
  });
 

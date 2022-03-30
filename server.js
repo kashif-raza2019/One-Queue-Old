@@ -9,17 +9,10 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
-// const connectionString = 'mongodb+srv://queuemanagementsih:uDBG@szZGfT7eey@cluster0.4sydm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-// const MongoClient = require('mongodb').MongoClient
 const io = new Server(server);
 const portNumber = process.env.PORT || 3000;
 app.use(express.static(__dirname));
 
-// MongoClient.connect(connectionString, { useUnifiedTopology: true })
-//   .then(client => {
-//     console.log('Connected to Database')
-//     const db = client.db('queue-db-proj');
-//   })
 const time = 60*60*1000;
 //username and password
 const myusername = 'medanta';
@@ -144,39 +137,39 @@ app.get('/dir', (req, res)=>{
 
 
 
-io.of('/token').on('connection', (socket) => {
-    console.log('a user connected');
-    var adhaar = "";
-    var phone = "";
-    var email = "";
-      res.sendFile(__dirname + '/app/src/gettoken.html');
-    //   app.get('/token', (req, res) => {
-    //      adhaar = req.query.adhaar;
-    //      phone = req.query.phone;
-    //      email = req.query.email;
-    //     console.log(adhaar + phone + email);
-    //   });
+// io.of('/token').on('connection', (socket) => {
+//     console.log('a user connected');
+//     var adhaar = "";
+//     var phone = "";
+//     var email = "";
+//       res.sendFile(__dirname + '/app/src/gettoken.html');
+//     //   app.get('/token', (req, res) => {
+//     //      adhaar = req.query.adhaar;
+//     //      phone = req.query.phone;
+//     //      email = req.query.email;
+//     //     console.log(adhaar + phone + email);
+//     //   });
 
-    var room = 'medanta';
-     socket.on('join', ({phone, room})=>{
-        addUser({id: socket.id, phone, room});
-        const roomData = getCurrentUsersInRoom(room);
-        socket.join(room);
-     })
-
-
-      socket.on('disconnect', () => {
-        console.log('user disconnected');
-      });
-  });
+//     var room = 'medanta';
+//      socket.on('join', ({phone, room})=>{
+//         addUser({id: socket.id, phone, room});
+//         const roomData = getCurrentUsersInRoom(room);
+//         socket.join(room);
+//      })
 
 
-  const getCurrentUsersInRoom = room => {
-    return{
-        users: users.filter(user => user.room == room),
-        room
-    };
-    };
+//       socket.on('disconnect', () => {
+//         console.log('user disconnected');
+//       });
+//   });
+
+
+//   const getCurrentUsersInRoom = room => {
+//     return{
+//         users: users.filter(user => user.room == room),
+//         room
+//     };
+//     };
 
  server.listen(portNumber, () => {
         console.log(`Server is running on port ${portNumber}`);

@@ -136,41 +136,7 @@ app.get('/dir', (req, res)=>{
 });
 
 
-
-// io.of('/token').on('connection', (socket) => {
-//     console.log('a user connected');
-//     var adhaar = "";
-//     var phone = "";
-//     var email = "";
-//       res.sendFile(__dirname + '/app/src/gettoken.html');
-//     //   app.get('/token', (req, res) => {
-//     //      adhaar = req.query.adhaar;
-//     //      phone = req.query.phone;
-//     //      email = req.query.email;
-//     //     console.log(adhaar + phone + email);
-//     //   });
-
-//     var room = 'medanta';
-//      socket.on('join', ({phone, room})=>{
-//         addUser({id: socket.id, phone, room});
-//         const roomData = getCurrentUsersInRoom(room);
-//         socket.join(room);
-//      })
-
-
-//       socket.on('disconnect', () => {
-//         console.log('user disconnected');
-//       });
-//   });
-
-
-//   const getCurrentUsersInRoom = room => {
-//     return{
-//         users: users.filter(user => user.room == room),
-//         room
-//     };
-//     };
-
- server.listen(portNumber, () => {
+ app.listen(portNumber, () => {
         console.log(`Server is running on port ${portNumber}`);
-});
+})
+

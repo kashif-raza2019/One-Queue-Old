@@ -1,30 +1,99 @@
 const express = require('express');
+const res = require('express/lib/response');
 const app = express();
-
-
+const bodyParser = require('body-parser');
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
+// const connectionString = 'mongodb+srv://queuemanagementsih:uDBG@szZGfT7eey@cluster0.4sydm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+// const MongoClient = require('mongodb').MongoClient
+const io = new Server(server);
 const portNumber = process.env.PORT || 3000;
+app.use(express.static(__dirname));
+
+// MongoClient.connect(connectionString, { useUnifiedTopology: true })
+//   .then(client => {
+//     console.log('Connected to Database')
+//     const db = client.db('queue-db-proj');
+//   })
+const time = 60*60*1000;
+//username and password
+const myusername = 'medanta';
+const mypassword = 'pass1234';
+
+// a variable to save a session
+var session;
+app.use(sessions({
+    secret: "thisisasecreat",
+    saveUninitialized:true,
+    cookie: { maxAge: time },
+    resave: false
+}));
+
+app.get('/orglogin',(req,res) => {
+    session=req.session;
+    if(session.userid){
+        res.send("Welcome User <a href=\'/logout'>click to logout</a>");
+    }else
+    res.sendFile(__dirname + '/app/src/orglogin.html');
+});
+
+app.post('/orgAdmin',(req,res) => {
+    if(req.body.username == myusername && req.body.password == mypassword){
+        session=req.session;
+        session.userid=req.body.username;
+        console.log(req.session)
+        res.sendFile(__dirname + '/app/src/admin.html');
+    }
+    else{
+        res.send('Invalid username or password');
+    }
+})
+
+app.get('/logout',(req,res) => {
+    req.session.destroy();
+    res.redirect('/orglogin');
+});
 
 
 app.get('/api/v1/', (req, res) => {
-    let resp = `<h1>Welcome to Port ${portNumber}</h1>`;
-    resp += '<h2>API Routes</h2>';
-    resp += '<ul>';
-    resp += '<li>/api/v1/</li>';
-    resp += '<li>/api/v1/token</li>';
-    resp += '<li>/api/v1/token/:tokenId</li>';
-    resp += '</ul>';
-
+    let resp = {
+        message: 'Welcome to the API',
+        status: 200,
+        routes:   {
+            '/api/v1/': 'Home',
+            '/api/v1/users': 'Users',
+            '/api/v1/users/:id': 'User',
+            '/api/v1/users/:id/tokens': 'User Tokens',
+            '/api/v1/users/:id/tokens/:token': 'User Token'
+        }};
     res.send(resp);
 });
+// Images
+app.get('/api/v1/images/:image', (req, res) => {
+    let image = req.params.image;
+    res.sendFile(__dirname + '/app/src/assets/images/' + image);
+});
+// scanner api
+app.get('/api/v1/js/scanner', (req, res) => {
+    res.sendFile(__dirname + '/app/src/assets/js/scanner.js');
+});
+
+
+
+
 
 // Index
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/app/src/index.html');
 });
 
-// One-Click Token
-app.get('/gettoken', (req, res) => {
-    res.sendFile(__dirname + '/app/src/oneclicktoken.html');
+app.get('/registertoken', (req, res)=> {
+    
 });
 
 //Token Details
@@ -46,7 +115,13 @@ app.get('/token-feedback', (req, res) => {
 app.get('/organization', (req, res) => {
     res.sendFile(__dirname + '/app/src/organization.html');
 });
+// view organization qr code
+app.get('/viewqr', (req, res) => {
+    res.sendFile(__dirname + '/app/src/viewqr.html');
+});
 
+
+// Example API
 app.get('/example', (req, res) => {
     res.sendFile(__dirname + '/app/src/example.html');
 });
@@ -59,6 +134,50 @@ app.get('/exampletokenverified', (req, res) => {
     res.sendFile(__dirname + '/app/src/exampletokenverified.html');
 });
 
- app.listen(portNumber, () => {
+app.get('/scanqr', (req, res) => {
+    res.sendFile(__dirname + '/app/src/scanqr.html');
+});
+
+app.get('/dir', (req, res)=>{
+    res.sendFile(__dirname + '/resources/dir.htm');
+});
+
+
+
+io.of('/token').on('connection', (socket) => {
+    console.log('a user connected');
+    var adhaar = "";
+    var phone = "";
+    var email = "";
+      res.sendFile(__dirname + '/app/src/gettoken.html');
+    //   app.get('/token', (req, res) => {
+    //      adhaar = req.query.adhaar;
+    //      phone = req.query.phone;
+    //      email = req.query.email;
+    //     console.log(adhaar + phone + email);
+    //   });
+
+    var room = 'medanta';
+     socket.on('join', ({phone, room})=>{
+        addUser({id: socket.id, phone, room});
+        const roomData = getCurrentUsersInRoom(room);
+        socket.join(room);
+     })
+
+
+      socket.on('disconnect', () => {
+        console.log('user disconnected');
+      });
+  });
+
+
+  const getCurrentUsersInRoom = room => {
+    return{
+        users: users.filter(user => user.room == room),
+        room
+    };
+    };
+
+ server.listen(portNumber, () => {
         console.log(`Server is running on port ${portNumber}`);
 });

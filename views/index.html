@@ -15,11 +15,12 @@
     />
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/autocomplete.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
     <title>One-Queue</title>
 </head>
 <body>
     <!-- Header Nav -->
-    <div class="navbar navbar-expand-md navbar-dark bg-dark mb-4" role="navigation">
+    <div class="navbar navbar-expand-md navbar-custom bg-custom mb-4" role="navigation">
       <a class="navbar-brand" href="/">One-Queue</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -48,20 +49,20 @@
               &nbsp;
               &nbsp;
               &nbsp;
-              <a href="/orglogin" class="btn btn-warning btn-outline" style="color:white;"><i class="fa fa-login"> Login</i></a>
+              <a href="/login" class="btn btn-warning btn-outline" style="color:white;"><i class="fa fa-login"> Login</i></a>
             </li>
             <li class="nav-item">
               &nbsp;
               &nbsp;
               &nbsp;
-              <a href="/directorylist" class="btn btn-info "><i class="fa fa-directory"></i> View Directory of Ward</a>
+              <a href="/directorylist" class="btn btn-info "><i class="fa fa-directory"></i> District <i class="fa fa-search"></i></a>
             </li>
           </ul>
-          <form autocomplete="off"  class="form-inline mt-2 mt-md-0" method="GET" action="">
-              <div class="form-control mr-sm-2 autocomplete" style="width:300px;">
+          <form autocomplete="off"  class="form-inline" method="GET" action="">
+              <div class="form-control autocomplete">
                 <input id="location" class="form-control" type="text" name="location" placeholder="Jaipur..">
               </div>
-              <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search"/>
+              <button type="submit" class="btn btn-outline-success"> <i class="fa fa-search"></i></button>
           </form>
       </div>
   </div>

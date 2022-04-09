@@ -1,3 +1,31 @@
+body{
+    background-image: url('/images/favicon.png');
+    background-color: #ebf2f3;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-blend-mode:overlay;
+    background-attachment: fixed;
+}
+
+.navbar-custom {
+    background-color: #007C7C;
+    color: #fff;
+}
+.navbar-custom a{
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.95;
+}
+.nav-item input{
+    opacity: 1.0;
+}
+.navbar-custom a:hover{
+    opacity: 0.85;
+    transition: 0.5s;
+}
+
+
 .navbar .dropdown-toggle, .navbar .dropdown-menu a {
     cursor: pointer;
 }
@@ -20,12 +48,24 @@
         width: 0;
         height: 0;
         margin-left: .5em;
+        margin-top: 2em;
         vertical-align: 0;
         border-bottom: .3em solid transparent;
         border-top: .3em solid transparent;
         border-left: .3em solid;
     }
+    .nav-item button{
+        text-align: center;
+        margin: 4px;
+        width: 230px;
+        align-items: center;
+    }
+    input, select {
+        max-width: 210px;
+        min-width: 180px;
+    }
 }
+
 
 .card{
     box-shadow:3px 3px 3px #8080802b;

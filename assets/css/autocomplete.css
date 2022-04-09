@@ -1,14 +1,14 @@
 /*the container must be positioned relative:*/
 .autocomplete {
-    background-color: #343A40;
+    background-color: #007c7c;
     position: relative;
     display: inline-block;
-    border: 1px solid #343A40;
+    border: 1px solid #007c7c;
   }
 
   .autocomplete-items {
     position: absolute;
-    border: 1px solid #343A40;
+    border: 1px solid #007c7c;
     border-bottom: none;
     border-top: none;
     z-index: 99;
@@ -19,7 +19,7 @@
   }
   
   .autocomplete-items div {
-    padding: 10px;
+    padding: 8px;
     cursor: pointer;
     background-color: #fff; 
     border-bottom: 1px solid #d4d4d4; 

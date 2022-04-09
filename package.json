@@ -23,5 +23,8 @@
     "http": "^0.0.1-security",
     "jquery": "^3.6.0",
     "node": "^17.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

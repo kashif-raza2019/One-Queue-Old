@@ -1,0 +1,26 @@
+body{
+    background-color: #7108d3;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 0%;
+}
+
+div{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    border: 4px solid rgba(198, 73, 223, 0.734);
+    border-radius: 12px;
+}
+
+h5{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}

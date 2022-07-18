@@ -10,6 +10,7 @@ const UserSchema = new mongoose.Schema({
     userContact: {type: String, default: null},
     userGender: {type: String, default: "Unknown"},
     userAdhaarNumber: {type: String, default: null},
+    
     // Details that will automatically get filled by the system
     userName: String, 
     userTokenOrganizationId: String,

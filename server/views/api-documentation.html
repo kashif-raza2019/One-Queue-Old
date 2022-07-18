@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/documentation.css">
+    <title>Documentation for API of One-Queue</title>
+</head>
+<body>
+    <header>
+        <h1>Documentation for API of One-Queue</h1>
+        <h2>Optimizers@</h2>
+        <h3>Team Members</h3>
+        <ul>
+            <li>1. MD KASHIF RAZA*, <span class="role">TEAM LEADER &  BACK-END</span></li>
+            <li>2. MILISHA GUPTA, <span class="role">FRONT-END + BACKEND</span></li>
+            <li>3. CHIRAG RAWAT, <span class="role">BACK-END</span></li>
+            <li>4. MUSKAAN AGRAWAL, <span class="role">FRONT-END + BACK-END</span></li>
+            <li>5. KULDEEP GAUR, <span class="role">FRONT-END + BACK-END</span></li>
+            <li>6. SAKSHI MAGRE, <span class="role">FRONT-END</span></li>
+        </ul>
+        <h3>Team Mentors</h3>
+        <ul>
+            <li>1. MR. GOVIND CHOUDHARY, <span class="role">Technical Mentor</span></li>
+            <li>2. PROF. VAIBHAV NEEMA, <span class="role">Academic Mentor</span></li>
+        </ul>
+    </header>
+    <main>
+        <table id="document">
+            <thead>
+                <tr>
+                    <th>S No.</th>
+                    <th>API END-POINT</th>
+                    <th>Description</th>
+                    <th>HTTP Method</th>
+                    <th>Parameters</th>
+                    <th>Response</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1.</th>
+                    <td class="api-url">/api/_v1/officials/</td>
+                    <td>Get details of officials of 33 districts of Rajasthan</td>
+                    <td class="method">GET</td>
+                    <td>
+                        <ul>
+                            <li>name: <span class="type">string</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <pre>
+                            [{
+                                "name" : "name",
+                                "positionOfAuthority" : "positionOfAuthority",
+                                "email": "email",
+                                "phone": "phone",
+                                "address": "address",
+                                "district" : "district",
+                                "state" : "state",
+                                "pincode" : "pincode",
+                                "createdAt" : "createdAt",
+                                "updatedAt" : "updatedAt"
+                                "approvalStatus" : "approvalStatus",
+                                "activationStatus"  : "activationStatus"
+                            }]
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>Team Optimizers@, IET-DAVV, INDORE (M.P.), PS : TK1050</p>
+    </footer>
+</body>
+</html>

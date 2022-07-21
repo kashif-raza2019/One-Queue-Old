@@ -46,11 +46,21 @@
                     <td class="method">GET</td>
                     <td>
                         <ul>
-                            <li>name: <span class="type">string</span></li>
+                            <li>1. Name<span class="type"> : String</span></li>
+                            <li>2. Position of Authority<span class="type"> : String</span></li>
+                            <li>3. Email<span class="type"> : String</span></li>
+                            <li>4. Phone<span class="type"> : String</span></li>
+                            <li>5. Address<span class="type"> : String</span></li>
+                            <li>6. District<span class="type"> : String</span></li>
+                            <li>7. State<span class="type"> : String</span></li>   
+                            <li>8. Pincode<span class="type"> : String</span></li>
+                            <li>9. Created At<span class="type"> : Timestamp</span></li>
+                            <li>10. Updated At<span class="type"> : Timestamp</span></li>
+                            <li>11. Approval Status<span class="type"> : Boolean</span></li>
+                            <li>12. Activation Status<span class="type"> : Boolean</span></li>
                         </ul>
                     </td>
                     <td>
-                        <pre>
                             [{
                                 "name" : "name",
                                 "positionOfAuthority" : "positionOfAuthority",
@@ -64,10 +74,99 @@
                                 "updatedAt" : "updatedAt"
                                 "approvalStatus" : "approvalStatus",
                                 "activationStatus"  : "activationStatus"
+                                  
                             }]
-                        </pre>
                     </td>
                 </tr>
+                <tr>
+                    <th>2.</th>
+                    <td class="api-url">/api/_v1/:creatorUserToken/official/</td>
+                    <td>Registration for Officials of 33 Districts</td>
+                    <td class="method">POST</td>
+                    <td>
+                        <ul>
+                            <li>1. Name<span class="type"> : String</span></li>
+                            <li>2. Position of Authority<span class="type"> : String</span></li>
+                            <li>3. Email<span class="type"> : String</span></li>
+                            <li>4. Phone<span class="type"> : String</span></li>
+                            <li>5. Password<span class="type"> : String</span> </li>
+                            <li>6. authenticationToken<span class="type"> : String</span> </li>
+                            <li>7. Documents<span class="type"> : Blob</span></li>
+                            <li>8. Address<span class="type"> : String</span></li>
+                            <li>9. District<span class="type"> : String</span></li>
+                            <li>10. State<span class="type"> : String</span></li>   
+                            <li>11. Pincode<span class="type"> : String</span></li>
+                            <li>12. Created At<span class="type"> : Timestamp</span></li>
+                            <li>13. Updated At<span class="type"> : Timestamp</span></li>
+                            <li>14. Approval Status<span class="type"> : Boolean</span></li>
+                            <li>15. Activation Status<span class="type"> : Boolean</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                            [{
+                                "name" : "name",
+                                "positionOfAuthority" : "positionOfAuthority",
+                                "email": "email",
+                                "phone": "phone",
+                                "password" : "password",
+                                "authenticationToken" : "authenticationToken",
+                                "documents" : "documents",
+                                "address": "address",
+                                "district" : "district",
+                                "state" : "state",
+                                "pincode" : "pincode",
+                                "createdAt" : "createdAt",
+                                "updatedAt" : "updatedAt"
+                                "approvalStatus" : "approvalStatus",
+                                "activationStatus"  : "activationStatus"
+                            }]
+                    </td>
+                </tr>
+                <tr>
+                    <th>3.</th>
+                    <td class="api-url">/api/_v1/District/</td>
+                    <td>Return details of 33 districts</td>
+                    <td class="method">GET</td>
+                    <td>
+                        <ul>
+                            <li> <span class="type">1. "Districts" : ["Ajmer", . . . , "Udaipur"]</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                            [{
+                                "Districts" : ["Ajmer", . . . , "Udaipur"]
+                            }]
+                    </td>
+                </tr>
+                <tr>
+                    <th>4.</th>
+                    <td class="api-url">/api/_v1/District/:district</td>
+                    <td>Return district name (More details to be inserted in future)</td>
+                    <td class="method">GET</td>
+                    <td>
+                        <ul>
+                            <li> <span class="type">1. "DistrictName"</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                           "DistrictName"
+                    </td>
+                </tr>
+                <!-- Template for new row -->
+                <!-- <tr>
+                    <th></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <ul>
+                            <li> <span class="type"></span></li>
+                        </ul>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr> -->
             </tbody>
         </table>
     </main>

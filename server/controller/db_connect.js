@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // Connect with  MongoDb Atlas
-const DB_URI = 'mongodb+srv://queuemanagement2022:BUSiAySND1NdYHlF@queuecluster.syc7y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const DB_URI = 'mongodb+srv://onequeue:hiRYrewKO3ix0yIB@onequeue.9hdfu.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 

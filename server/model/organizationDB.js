@@ -4,16 +4,23 @@ const Timestamp = require('bson').Timestamp;
 
 const organizationSchema = new mongoose.Schema({
     organizationName: String,
+    // Organization Code is the unique identifier for the organization
     organizationCode: String,
     organizationType: String,
     organizationAddress: String,
-    organizationCoordinates: String,
-    organizationContact: String,
+    organizationPhone: String,
     organizationEmail: String,
     organizationWebsite: String,
+    organizationDistrict: String,
+    organizationDivision: String,
+    organizationLogo: String,
+    organizationDescription: String,
+    organizationCreated: {type : Date, default: Date.now},
     organizationLogo: {data: Buffer, contentType: String},
     activeStatus: { type: Boolean, default: false },
     createdBy: { type: String, default: "Unknown" },
+    
+    // Details to be added later
     numberOfAllowedTokens: Number,
     currentTraffic: Number,
     previousDayTraffic: Number,

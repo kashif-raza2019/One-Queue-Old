@@ -1,16 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
+// render data to the screen
+// const testUrl = 'http://localhost:8080/testdata';
+
 function App() {
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          One-Queue Front-End will work here!
-        </p>
-        <a href="http://localhost:8080/">Go to Server</a>
-        
+        <a
+          className="App-link"
+          href="http://localhost:8080/testdata"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Server Ready Test
+        </a>
       </header>
     </div>
   );

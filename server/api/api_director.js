@@ -8,4 +8,16 @@ const API_V1_ROUTE = require('./api_v1');
 
 router.use(API_V1_ROUTE);
 
+// Test API route
+router.get('/testdata', (req, res) => {
+    res.json({
+        message: 'API is working',
+        data: {
+            name: 'John Doe',
+            age: '30'
+        }
+        
+    });
+});
+
 module.exports = router;

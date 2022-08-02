@@ -9,7 +9,8 @@ const path = require('path');
 const express = require('express');
 const ROUTER = express.Router();
 const INITIAL_URL = '/api/_v1/';
-
+// Mailer function
+const sendMail = require('../utils/mail');
 /*
     District details API
 */
@@ -39,6 +40,18 @@ function getDistrict(district) {
 
 // **** END OF DISTRICT DETAILS API ****
 
+// **** START OF MAILING ****
+ROUTER.get(INITIAL_URL + 'mail/:userId/:subject/:message', (req, res) => {
+    const to = req.params.userId;
+    const subject = req.params.subject;
+    const message = req.params.message;
+    if(sendMail(to, subject, message)){
+        res.status(200).json('Mail sent successfully');
+    }else{
+        res.status(500).json('Mail sending failed');
+    }
+
+});
 
 // Documentation Route
 ROUTER.get(INITIAL_URL + 'Documentation/', (req, res) => {

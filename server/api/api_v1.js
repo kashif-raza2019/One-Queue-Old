@@ -3,65 +3,40 @@
  * This is the first version of the API.
  * Refer Google Doc: https://docs.google.com/document/d/1aaRhfZdGcMAyfUyL9sPnf82f_cqVMONB5gfHSjNBhUc/edit
  * Route: /api/_v1/  
+ */                      
+const express = require('express');
+const router = express.Router();
+
+/**
+ *             API VERSION 1 PATHS
+ */
+const mail = require('./api_v1/mail');
+const documentation = require('./api_v1/documentation');
+const getSingleDistrict = require('./api_v1/getSingleDistricts');
+const getDistrict = require('./api_v1/getDistrict');
+
+// Organization
+const typesOfOrganization = require('./api_v1/provideTypesOfOrganization');
+const registerOrganization = require('./api_v1/registerOrganization');
+
+/**
+ *             API VERSION 1 ROUTES
  */
 
-const path = require('path');
-const express = require('express');
-const ROUTER = express.Router();
-const INITIAL_URL = '/api/_v1/';
-// Mailer function
-const sendMail = require('../utils/mail');
-/*
-    District details API
-*/
-const rajasthanJson = require('../utils/rajasthan.json');
-ROUTER.get(INITIAL_URL + 'District/', (req, res) => {
-    res.json(rajasthanJson);
-});
+// Organization Registration Routes
+router.use(typesOfOrganization);
+router.use(registerOrganization);
 
-ROUTER.get(INITIAL_URL + 'District/:district', (req, res) => {
-    const district = req.params.district;
-    if(getDistrict(district)) {
-        res.json(district);
-    }
-    else {
-        res.status(404).json( 'District not found');
-    }
-});
+// District Routes
+router.use(getSingleDistrict);
+router.use(getDistrict);
 
-function getDistrict(district) {
-    for(var i = 0; i < rajasthanJson.districts.length; i++) {
-        if(rajasthanJson.districts[i] == district) {
-            return true;
-        }
-    }
-    return false;
-}
+// Mail API
+router.use(mail);
 
-// **** END OF DISTRICT DETAILS API ****
-
-// **** START OF MAILING ****
-ROUTER.get(INITIAL_URL + 'mail/:userId/:subject/:message', (req, res) => {
-    const to = req.params.userId;
-    const subject = req.params.subject;
-    const message = req.params.message;
-    if(sendMail(to, subject, message)){
-        res.status(200).json('Mail sent successfully');
-    }else{
-        res.status(500).json('Mail sending failed');
-    }
-
-});
-
-// Documentation Route
-ROUTER.get(INITIAL_URL + 'Documentation/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'views', 'api-documentation.html' ));
-});
+// Documentation API
+router.use(documentation);
 
 
 
-
-
-
-
-module.exports = ROUTER;
+module.exports = router;

@@ -1,8 +1,6 @@
-const mongodb = require('../controller/db_connect');
 const mongoose = require('mongoose');
-const Timestamp = require('bson').Timestamp;
 
-const organizationSchema = new mongoose.Schema({
+const OrganizationSchema = new mongoose.Schema({
     organizationName: String,
     // Organization Code is the unique identifier for the organization
     organizationCode: String,
@@ -21,22 +19,23 @@ const organizationSchema = new mongoose.Schema({
     createdBy: { type: String, default: "Unknown" },
     
     // Details to be added later
-    numberOfAllowedTokens: Number,
-    currentTraffic: Number,
-    previousDayTraffic: Number,
+    numberOfAllowedTokens: { type: Number, default: 0 },
+    currentTraffic: { type: Number, default: 0 },
+    previousDayTraffic: { type: Number, default: 0 },
     //Traffic Status Color: Green - for less than 10% traffic, Yellow - for 10% to 50% traffic, Red - for more than 50% traffic
     trafficStatusColor: {type: String, default: "Green"},
     // ID of the current token
-    currentTokenServed: String,
+    currentTokenServed: { type: String, default: "None" },
     // ID of the previous token
-    previousTokenServed: String,
+    previousTokenServed: { type: String, default: "None" },
     // ID of the next token
-    nextTokenServed: String,
+    nextTokenServed: { type: String, default: "None" },
     // For verification purpose
-    qrCodeUrl: String,
+    qrCodeUrl: { type: String, default: "None" },
     lastTimeActive: { type: Date, default: Date.now },
     // Rating of the organization
-    rating: { type: Number, default: 2.5 }
+    rating: { type: Number, default: 2.5 },
+    organizationApprovalStatus : { type: Boolean, default: false }
 });
 
-module.exports = mongoose.model('Organization', organizationSchema);
+module.exports = mongoose.model('Organization', OrganizationSchema);

@@ -152,12 +152,203 @@
                            "DistrictName"
                     </td>
                 </tr>
+                <tr>
+                    <th>5.</th>
+                    <td class="api-url">/api/_v1/mail/:sendermail/:subject/:message</td>
+                    <td>Mail the particular email address from One-Queue</td>
+                    <td class="method">POST</td>
+                    <td>
+                        <ul>
+                            <li>userId</li>
+                            <li>subject</li>
+                            <li>message</li>
+                        </ul>
+                    </td>
+                    <td>
+                        "Mail sent succesfully" or &lt;Error&gt;
+                    </td>
+                </tr>
+                <tr>
+                    <th>6.</th>
+                    <td class="api-url">/api/_v1/get/organization/</td>
+                    <td>Returns all the data of registered organization</td>
+                    <td class="method">GET</td>
+                    <td>
+                        <ul>
+                            <li> None</li>
+                        </ul>
+                    </td>
+                    <td>
+<pre>
+{
+    organizationName: String,
+    organizationCode: String,
+    organizationType: String,
+    organizationAddress: String,
+    organizationPhone: String,
+    organizationEmail: String,
+    organizationPassword: String,
+    organizationWebsite: String,
+    organizationDistrict: String,
+    organizationDivision: String,
+    organizationLogo: String,
+    organizationDescription: String,
+    organizationCreated: {type : Date, default: Date.now},
+    organizationLogo: {data: Buffer, contentType: String},
+    activeStatus: { type: Boolean, default: false },
+    createdBy: { type: String, default: "Unknown" },
+    numberOfAllowedTokens: { type: Number, default: 0 },
+    currentTraffic: { type: Number, default: 0 },
+    previousDayTraffic: { type: Number, default: 0 },
+    trafficStatusColor: {type: String, default: "Green"},
+    // ID of the current token
+    currentTokenServed: { type: String, default: "None" },
+    // ID of the previous token
+    previousTokenServed: { type: String, default: "None" },
+    // ID of the next token
+    nextTokenServed: { type: String, default: "None" },
+    // For verification purpose
+    qrCodeUrl: { type: String, default: "None" },
+    lastTimeActive: { type: Date, default: Date.now },
+    // Rating of the organization
+    rating: { type: Number, default: 2.5 },
+    organizationApprovalStatus : { type: Boolean, default: false }
+}
+</pre>
+                    </td>
+                </tr> 
+                <tr>
+                    <th>7.</th>
+                    <td class="api-url">/api/_v1/get/organization/:district</td>
+                    <td>Returns all the data of registered organization in a <b>District</b></td>
+                    <td class="method">GET</td>
+                    <td>
+                        <ul>
+                            <li>district</li>
+                        </ul>
+                    </td>
+                    <td>
+<pre>
+{
+    organizationName: String,
+    organizationCode: String,
+    organizationType: String,
+    organizationAddress: String,
+    organizationPhone: String,
+    organizationEmail: String,
+    organizationPassword: String,
+    organizationWebsite: String,
+    organizationDistrict: String,
+    organizationDivision: String,
+    organizationLogo: String,
+    organizationDescription: String,
+    organizationCreated: {type : Date, default: Date.now},
+    organizationLogo: {data: Buffer, contentType: String},
+    activeStatus: { type: Boolean, default: false },
+    createdBy: { type: String, default: "Unknown" },
+    numberOfAllowedTokens: { type: Number, default: 0 },
+    currentTraffic: { type: Number, default: 0 },
+    previousDayTraffic: { type: Number, default: 0 },
+    trafficStatusColor: {type: String, default: "Green"},
+    // ID of the current token
+    currentTokenServed: { type: String, default: "None" },
+    // ID of the previous token
+    previousTokenServed: { type: String, default: "None" },
+    // ID of the next token
+    nextTokenServed: { type: String, default: "None" },
+    // For verification purpose
+    qrCodeUrl: { type: String, default: "None" },
+    lastTimeActive: { type: Date, default: Date.now },
+    // Rating of the organization
+    rating: { type: Number, default: 2.5 },
+    organizationApprovalStatus : { type: Boolean, default: false }
+}
+</pre>
+                    </td>
+                </tr> 
+                <tr>
+                    <th>8.</th>
+                    <td class="api-url">/api/_v1/get/organization/org-code/:organizationCode</td>
+                    <td>Returns the data of organization with given <b>organization code</b> </td>
+                    <td class="method">GET</td>
+                    <td>
+                        <ul>
+                            <li> organizationCode</li>
+                        </ul>
+                    </td>
+                    <td>
+<pre>
+{
+    organizationName: String,
+    organizationCode: String,
+    organizationType: String,
+    organizationAddress: String,
+    organizationPhone: String,
+    organizationEmail: String,
+    organizationPassword: String,
+    organizationWebsite: String,
+    organizationDistrict: String,
+    organizationDivision: String,
+    organizationLogo: String,
+    organizationDescription: String,
+    organizationCreated: {type : Date, default: Date.now},
+    organizationLogo: {data: Buffer, contentType: String},
+    activeStatus: { type: Boolean, default: false },
+    createdBy: { type: String, default: "Unknown" },
+    numberOfAllowedTokens: { type: Number, default: 0 },
+    currentTraffic: { type: Number, default: 0 },
+    previousDayTraffic: { type: Number, default: 0 },
+    trafficStatusColor: {type: String, default: "Green"},
+    // ID of the current token
+    currentTokenServed: { type: String, default: "None" },
+    // ID of the previous token
+    previousTokenServed: { type: String, default: "None" },
+    // ID of the next token
+    nextTokenServed: { type: String, default: "None" },
+    // For verification purpose
+    qrCodeUrl: { type: String, default: "None" },
+    lastTimeActive: { type: Date, default: Date.now },
+    // Rating of the organization
+    rating: { type: Number, default: 2.5 },
+    organizationApprovalStatus : { type: Boolean, default: false }
+}
+</pre>
+                    </td>
+                </tr> 
+                <tr>
+                    <th>9.</th>
+                    <td class="api-url">/api/_v1/types/organization</td>
+                    <td>Return json data of all the types of organization saved</td>
+                    <td class="method">GET</td>
+                    <td>
+                        <ul>
+                            <li><span class="type">None</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                        ['Type1', 'Type2' ...]
+                    </td>
+                </tr>
+                <tr>
+                    <th>10.</th>
+                    <td class="api-url">/api/_v1/types/organization/:newType</td>
+                    <td>Add a new type of organization</td>
+                    <td class="method">POST</td>
+                    <td>
+                        <ul>
+                            <li><span class="type">newOrganizationType</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                        ['Type1', 'Type2' ..., '<b>NewType</b>']
+                    </td>
+                </tr>
                 <!-- Template for new row -->
                 <!-- <tr>
                     <th></th>
+                    <td class="api-url">/api/_v1/</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="method"></td>
                     <td>
                         <ul>
                             <li> <span class="type"></span></li>

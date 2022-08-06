@@ -8,6 +8,7 @@ const OrganizationSchema = new mongoose.Schema({
     organizationAddress: String,
     organizationPhone: String,
     organizationEmail: String,
+    organizationPassword: String,
     organizationWebsite: String,
     organizationDistrict: String,
     organizationDivision: String,

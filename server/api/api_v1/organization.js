@@ -37,16 +37,16 @@ const rajasthanArr = [
    'Sri Ganganagar',
    'Tonk',
    'Udaipur'
-
 ];
 
-router.post(INITIAL_URL + '/register/organization/', async (req, res) => {
+router.post(INITIAL_URL + 'register/organization/', async (req, res) => {
     const name = req.body.organizationName;
     // We need to create the organization 
     const type = req.body.organizationType;
     const address = req.body.organizationAddress;
     const phone = req.body.organizationPhone;
     const email = req.body.organizationEmail;
+    const password = req.body.organizationPassword;
     const website = req.body.organizationWebsite;
     const district = req.body.organizationDistrict;
     const division = req.body.organizationDivision;
@@ -120,6 +120,110 @@ function createOrganizationCode(organizationName, organizationType, organization
     organizationCode += randomNumber.toString();
     return organizationCode.toUpperCase();
 }
+
+
+router.get(INITIAL_URL + 'get/organization/', async (req, res) => {
+    OrganizationSchema.find({}, (err, result) => {
+        if (err) {
+            res.status(500).json({
+                error: err,
+                message: 'Error in getting organization'
+            });
+        } else {
+            res.status(200).json({ organization : result});
+        }
+    });
+
+});
+
+// Get the organization by the district
+router.get(INITIAL_URL + 'get/organization/:district', async (req, res) => {
+    const districtName = req.params.district;
+    let district = '';
+    for(let i = 0; i < districtName.length; i++) {
+        if(i === 0){
+            district += districtName[i].toUpperCase();
+        }else{
+            district += districtName[i].toLowerCase();
+        }
+    }
+    OrganizationSchema.find({organizationDistrict: district}, (err, result) => {
+        if (err) {
+            res.status(500).json({
+                error: err,
+                message: 'Error in getting organization'
+            });
+        } else {
+            if(result.length === 0) {
+                res.status(200).json({
+                    message: 'No organization found in this district'
+                });
+            }else{
+                res.status(200).json({ organization : result});
+            }
+        }
+    });
+
+});
+
+// Get the organization by the organization code
+router.get(INITIAL_URL + 'get/organization/org-code/:organizationCode', async (req, res) => {
+    const organizationCode_uf = req.params.organizationCode;
+    let organizationCode = '';
+    for(let i = 0; i < organizationCode_uf.length; i++) {
+        organizationCode += organizationCode_uf[i].toUpperCase();
+    }
+    OrganizationSchema.findOne({organizationCode: organizationCode}, (err, result) => {
+        if (err) {
+            res.status(500).json({
+                error: err,
+                message: 'Error in getting organization'
+            });
+        } else {
+            if(result.length === 0) {
+                res.status(200).json({
+                    message: 'No organization found in this district'
+                });
+            }else{
+                res.status(200).json({ organization : result});
+            }
+        }
+    });
+
+});
+
+
+
+// Get the organization by the organization division
+router.get(INITIAL_URL + 'get/organization/:district/:division', async (req, res) => {
+    const districtName = req.params.district;
+    const divisionName = req.params.division;
+    let district = '';
+    for(let i = 0; i < districtName.length; i++) {
+        if(i === 0){
+            district += districtName[i].toUpperCase();
+        }else{
+            district += districtName[i].toLowerCase();
+        }
+    }
+    OrganizationSchema.find({organizationDistrict: district, organizationDivision : division}, (err, result) => {
+        if (err) {
+            res.status(500).json({
+                error: err,
+                message: 'Error in getting organization'
+            });
+        } else {
+            if(result.length === 0) {
+                res.status(200).json({
+                    message: 'No organization found in this district\'s division'
+                });
+            }else{
+                res.status(200).json({ organization : result});
+            }
+        }
+    });
+
+});
 
 
 module.exports = router;

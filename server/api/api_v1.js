@@ -10,6 +10,10 @@ const router = express.Router();
 /**
  *             API VERSION 1 PATHS
  */
+// Test API Routes
+const testScripts = require('./api_v1/testscripts');
+
+// Original API ROUTES
 const mail = require('./api_v1/mail');
 const documentation = require('./api_v1/documentation');
 const getSingleDistrict = require('./api_v1/getSingleDistricts');
@@ -17,15 +21,15 @@ const getDistrict = require('./api_v1/getDistrict');
 
 // Organization
 const typesOfOrganization = require('./api_v1/provideTypesOfOrganization');
-const registerOrganization = require('./api_v1/registerOrganization');
+const organization = require('./api_v1/organization');
 
 /**
  *             API VERSION 1 ROUTES
  */
-
+// router.use(testScripts);
 // Organization Registration Routes
 router.use(typesOfOrganization);
-router.use(registerOrganization);
+router.use(organization);
 
 // District Routes
 router.use(getSingleDistrict);

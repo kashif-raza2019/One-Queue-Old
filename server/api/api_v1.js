@@ -23,6 +23,8 @@ const getDistrict = require('./api_v1/getDistrict');
 const typesOfOrganization = require('./api_v1/provideTypesOfOrganization');
 const organization = require('./api_v1/organization');
 
+// QRCode
+const qrcode = require('./api_v1/qrcode');
 /**
  *             API VERSION 1 ROUTES
  */
@@ -30,6 +32,9 @@ const organization = require('./api_v1/organization');
 // Organization Registration Routes
 router.use(typesOfOrganization);
 router.use(organization);
+
+// QRCode Routes
+router.use(qrcode);
 
 // District Routes
 router.use(getSingleDistrict);

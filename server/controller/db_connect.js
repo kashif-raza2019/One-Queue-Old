@@ -1,6 +1,7 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 // Connect with  MongoDb Atlas
-const DB_URI = 'mongodb+srv://onequeue:hiRYrewKO3ix0yIB@onequeue.9hdfu.mongodb.net/?retryWrites=true&w=majority';
+const DB_URI = 'mongodb+srv://'+ process.env.DB_USERNAME +':' + process.env.DB_PASSWORD +'@onequeue.9hdfu.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 

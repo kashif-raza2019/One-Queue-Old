@@ -15,7 +15,6 @@ const testScripts = require('./api_v1/testscripts');
 
 // Original API ROUTES
 const mail = require('./api_v1/mail');
-const documentation = require('./api_v1/documentation');
 const getSingleDistrict = require('./api_v1/getSingleDistricts');
 const getDistrict = require('./api_v1/getDistrict');
 
@@ -25,6 +24,9 @@ const organization = require('./api_v1/organization');
 
 // QRCode
 const qrcode = require('./api_v1/qrcode');
+
+// Official
+const official = require('./api_v1/official');
 /**
  *             API VERSION 1 ROUTES
  */
@@ -43,8 +45,8 @@ router.use(getDistrict);
 // Mail API
 router.use(mail);
 
-// Documentation API
-router.use(documentation);
+// Official Routes
+router.use(official);
 
 
 

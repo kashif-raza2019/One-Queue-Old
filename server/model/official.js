@@ -5,6 +5,8 @@ const officialSchema = new mongoose.Schema({
     name : String,
     // Username is the unique identifier for the official
     username : String,
+    // Gender
+    gender: {type:String, default: "Not Set" },
     // Email is the email of the official
     email: String,
     // Alternate Email is the alternate email of the official
@@ -12,11 +14,11 @@ const officialSchema = new mongoose.Schema({
     // Password
     password: String,
     // Phone is the phone number of the official
-    phone: String,
+    contact : String,
     // position of authority of the official
     positionOfAuthority: String,
     // sub-departments created by the official
-    subDepartments: { type: Array, default: [] },
+    subDepartments: { type:Object, default: [] },
     // List of documents uploaded by the official
     documents: {type: Array, default: []},
     // Authorized status of the official
@@ -27,6 +29,12 @@ const officialSchema = new mongoose.Schema({
     division: String,
     // Address of the official
     address: String,
+    // veficiationCode
+    verificationCode: String,
+    // One time password OTP
+    otp: String,
+    // Temperory Password status
+    tempPassword: { type: Boolean, default: true },
     // Created on time of the official
     created: {type : Date, default: Date.now}
 });

@@ -5,8 +5,9 @@ const router = express.Router();
 const API_V1_ROUTE = require('./api_v1');
 
 // Direct the API to the current version
-
+// Authenticate the header before proceeding
 router.use(API_V1_ROUTE);
+
 
 // Test API route
 router.get('/testdata', (req, res) => {

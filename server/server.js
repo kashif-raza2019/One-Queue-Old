@@ -5,11 +5,22 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const _DB_CONNECTION = require('./controller/db_connect');
 const {auth} = require('express-openid-connect');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 // API Director
 const API_DIRECTOR = require('./api/api_director');
 const authRouter = require('./api/auth');
 // PORT for the server
 const SERVER_PORT = process.env.PORT || 8080;
+
+// session
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}));
+app.use(cookieParser());
 
 app.use(cors(
     {
@@ -38,6 +49,10 @@ app.use( '/public' , express.static(__dirname + '/public'));
 
 app.get('/', (req, res)=>{
     res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/Documentation', (req, res) => {
+    res.sendFile(__dirname + '/views/api-documentation.html');
 });
 
 app.use(API_DIRECTOR);

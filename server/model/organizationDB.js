@@ -39,12 +39,15 @@ const OrganizationSchema = new mongoose.Schema({
     services : { type:Object, default: [
         {
             serviceName: "MAIN",
+            serviceCode: 1,
             role : ["admin", "editor", "viewer"],
             adminName : { type: String, default: "Unknown" },
             adminEmail : { type: String, default: "Unknown" },
             adminPhone : { type: String, default: "Unknown" },
             adminPassword : { type: String, default: "Unknown" },
             adminAlternateEmail : { type: String, default: "Unknown" },
+            qrCode: {  data: Buffer, contentType: String },
+            qrCodeImage: { data: Buffer, contentType: String },
             counter: {type: Object, default: [
                 {
                     counterName: { type: String, default: "Counter - 01" },
@@ -53,10 +56,12 @@ const OrganizationSchema = new mongoose.Schema({
                     // Token Timings Array Eve n Indices are starting time
                     // Odd Indices are ending time
                     tokenTimings: { type: Array, default: []},
-                    counterStatus: { type: Boolean, default: true },
-                    qrCode: { type: String, default: "Unknown" },
-                    qrCodeImage: { data: Buffer, contentType: String },
+                    counterStatus: { type: Boolean, default: false },
                     currentDayTokens: { type: Number, default: 0 },
+                    // Maximum tokens for a day
+                    maxTokenAvailable: { type: Number, default: 0 },
+                    // Current token available == currentDayTokens - maxTokenForDay
+                    // if currentDayToken == 0 currentDayTokenAvailable = maxTokenForDay
                     currentDayTokensAvailable: { type: Number, default: 0 },
                     previousDayTokens: { type: Number, default: 0 },
                     totalTokens: { type: Number, default: 0 },
